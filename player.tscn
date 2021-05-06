@@ -14,14 +14,11 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="Spatial" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-
-[node name="Camera" type="Camera" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, -0.243734, 0.969842, 0, -0.969842, -0.243734, 0, 5, -3.92826 )
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.999979, -0.00654444, 0, 0.00654444, 0.999979, 0, 0.153748, 7.76252 )
 current = true
 
-[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
-transform = Transform( 0.5, 0, 0, 0, 0.499983, -0.00409271, 0, 0.00409271, 0.499983, 0, 0, 0 )
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.5, 0, 0, 0, -0.00409273, -0.499983, 0, 0.499983, -0.00409273, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
