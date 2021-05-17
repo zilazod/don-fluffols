@@ -3,8 +3,8 @@
 [ext_resource path="res://player.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 0.743514
-height = 0.002
+radius = 0.5
+height = 0.5
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -24,3 +24,7 @@ current = true
 transform = Transform( 0.5, 0, 0, 0, -0.00409273, -0.499983, 0, 0.499983, -0.00409273, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = null
+
+[node name="invulnerabillity timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true

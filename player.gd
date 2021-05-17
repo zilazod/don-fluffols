@@ -1,11 +1,16 @@
 extends KinematicBody
 
+signal health_updated(health)
+signal kelled()
 
 const move_speed = 7
 const jump_force = 7
 const gravity = 9.8
 const max_fall_speed = 30
 var y_velo = 0
+export (float) var max_health = 100
+onready var health = max_health setget _set_health
+onready var invulnerabillity_timer = $"invulnerabillity timer" 
 
 
 func _physics_process(delta):
@@ -29,4 +34,25 @@ func _physics_process(delta):
 		if Input.is_action_pressed("jump"):
 			y_velo = jump_force
 			just_jumped = true
+
+
+func damage(amount):
+	if invulnerabillity_timer.is_stopped():
+		invulnerabillity_timer.start()
+	_set_health(health - amount)
+
+
+func kill():
+	pass
+
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if health != prev_health:
+		emit_signal("health_updated", health)
+		if health == 0:
+			kill()
+			emit_signal("kelled")
+
+
 
