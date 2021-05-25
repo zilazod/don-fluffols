@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mblock.tscn" type="PackedScene" id=1]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
@@ -13,3 +15,5 @@ curve = SubResource( 1 )
 
 [node name="PathFollow" type="PathFollow" parent="Path"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99218, 0.0141912, -0.0104713 )
+
+[node name="mblock" parent="Path/PathFollow" instance=ExtResource( 1 )]

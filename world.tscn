@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://blocks.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sime1path.gd" type="Script" id=4]
+[ext_resource path="res://mblock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PathFollow1.gd" type="Script" id=5]
 
 [sub_resource type="Curve3D" id=1]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 8.63345, 0.518684, -0.109455, 0, 0, 0, 0, 0, 0, -4.69509, 0.518191, -0.0847664, 0, 0, 0, 0, 0, 0, 8.6464, 0.519698, -0.104819 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.78976, 1.81794, 0.204833, 0, 0, 0, 0, 0, 0, 12.453, 1.96098, 0.510336, 0, 0, 0, 0, 0, 0, -2.89085, 1.82099, 0.33601 ),
 "tilts": PoolRealArray( 0, 0, 0 )
 }
 
@@ -30,15 +31,18 @@ __meta__ = {
 transform = Transform( 0.371462, 0.362684, -0.854679, 0.644004, 0.562443, 0.518572, 0.668786, -0.743046, -0.0246432, -7.54654, 1.49981, 11.7173 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38445, 2.89356, 0 )
-max_health = null
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.68157, 2.96117, 0 )
+
+[node name="slime" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90152, 0.541205, -0.000528097 )
 
 [node name="Path" type="Path" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.2121, 4.66873, 0 )
 curve = SubResource( 1 )
 
-[node name="PathFollow" type="PathFollow" parent="Path"]
-transform = Transform( -0.999999, -0.00115238, 0.000313946, -0.00117846, 0.909188, -0.416383, 0.000194397, -0.416383, -0.909189, 8.63345, 0.518684, -0.109455 )
-script = ExtResource( 4 )
+[node name="PathFollow1" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0.000156697, -0.000472586, -0.0001567, 1, -5.99704e-06, 0.000472585, 6.07109e-06, 1, -2.6675, 1.81909, 0.207284 )
+offset = 0.130172
+script = ExtResource( 5 )
 
-[node name="slime" parent="Path/PathFollow" instance=ExtResource( 3 )]
-transform = Transform( 1, -3.34947e-05, -0.000456227, 0.000202542, 0.926654, 0.375917, 0.000410175, -0.375917, 0.926654, 0, 0, -7.45058e-09 )
+[node name="mblock" parent="Path/PathFollow1" instance=ExtResource( 4 )]
