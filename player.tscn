@@ -3,8 +3,8 @@
 [ext_resource path="res://player.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=3]
-radius = 0.499978
-height = 0.507534
+radius = 0.505378
+height = 0.465562
 
 [sub_resource type="CapsuleMesh" id=2]
 

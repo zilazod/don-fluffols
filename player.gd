@@ -10,6 +10,7 @@ var y_velo = 0
 
 
 func _physics_process(delta):
+	move_lock_y
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
