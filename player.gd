@@ -9,8 +9,9 @@ const max_fall_speed = 30
 var y_velo = 0
 
 
+
+
 func _physics_process(delta):
-	move_lock_y
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
@@ -31,7 +32,6 @@ func _physics_process(delta):
 		if Input.is_action_pressed("jump"):
 			y_velo = jump_force
 			just_jumped = true
-
 
 
 

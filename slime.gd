@@ -6,16 +6,13 @@ export var direction = 1
 var is_dead = false
 
 
+
 func dead():
-	if is_dead == true:
-		move_lock_x
-		
+	queue_free()
 
 
 
 func _physics_process(delta):
-	move_lock_y
-	
 	
 	if is_dead == false:
 		if is_on_wall():
@@ -39,3 +36,7 @@ func _physics_process(delta):
 
 
 
+
+func _on_Area_body_entered(body):
+	if body.name == "player":
+		dead()
