@@ -1,5 +1,8 @@
 extends KinematicBody
 
+onready var goo_scene = preload("res://goo.tscn")
+
+
 var velocity = Vector3()
 export var direction = 1
 
@@ -24,10 +27,17 @@ func _physics_process(delta):
 		pass
 
 
+func fire():
+	var goo = goo_scene.instance()
+	goo.position = get_global_position()
+	goo.player = player
+	get_parent().get_child(goo)
+	$timer.set_wait_tire(1)
 
 
-
-
+func _on_timer_timeout():
+	if player != null:
+		fire()
 
 
 
@@ -40,3 +50,12 @@ func _physics_process(delta):
 func _on_Area_body_entered(body):
 	if body.name == "player":
 		dead()
+
+
+func _on_Area2_body_entered(body):
+	if body != self:
+		player = body
+
+
+func _on_Area2_body_exited(body):
+	player = null

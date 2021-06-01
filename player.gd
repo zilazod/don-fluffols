@@ -13,7 +13,7 @@ export (float) var max_health = 100
 
 onready var health = max_health setget _set_health
 
-
+onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
 	var move_dir = 0
@@ -38,6 +38,8 @@ func _physics_process(delta):
 			just_jumped = true
 
 func damage(amount):
+	if invulnerability_timer.is_stopped():
+		invulnerability_timer.start()
 	_set_health(health - amount)
 
 func kill():
@@ -51,6 +53,8 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+
+
 
 
 
