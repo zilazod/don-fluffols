@@ -7,7 +7,7 @@ var velocity = Vector3()
 export var direction = 1
 
 var is_dead = false
-
+var player = null
 
 
 func dead():
@@ -29,15 +29,11 @@ func _physics_process(delta):
 
 func fire():
 	var goo = goo_scene.instance()
-	goo.position = get_global_position()
+	goo.translation = get_translation()
 	goo.player = player
-	get_parent().get_child(goo)
-	$timer.set_wait_tire(1)
+	get_parent().add_child(goo)
+	#$timer.set_wait_time(1)
 
-
-func _on_timer_timeout():
-	if player != null:
-		fire()
 
 
 
@@ -59,3 +55,8 @@ func _on_Area2_body_entered(body):
 
 func _on_Area2_body_exited(body):
 	player = null
+
+
+func _on_Timer_timeout():
+	if player != null:
+		fire()
