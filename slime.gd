@@ -31,6 +31,7 @@ func fire():
 	var goo = goo_scene.instance()
 	goo.translation = get_translation()
 	goo.player = player
+	
 	get_parent().add_child(goo)
 	#$timer.set_wait_time(1)
 
