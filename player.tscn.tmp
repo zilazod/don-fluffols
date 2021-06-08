@@ -34,5 +34,3 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0 )
 shape = SubResource( 3 )
-
-[connection signal="area_shape_entered" from="Area" to="." method="_on_Area_area_shape_entered"]

@@ -8,6 +8,7 @@ const jump_force = 7
 const gravity = 9.8
 const max_fall_speed = 30
 var y_velo = 0
+var spud = 100
 
 export (float) var max_health = 100
 
@@ -16,6 +17,7 @@ onready var health = max_health setget _set_health
 onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
+	print(spud)
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
@@ -53,6 +55,18 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

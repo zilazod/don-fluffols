@@ -29,10 +29,12 @@ func _physics_process(delta):
 
 func fire():
 	var goo = goo_scene.instance()
-	goo.translation = get_translation()
-	goo.player = player
+	owner.add_child(goo)
+	goo.transform = $SlimeLauncher.get_global_transform()
+	#goo.player = player
+	goo.velocity = -goo.transform.basis.z * goo.speed
 	
-	get_parent().add_child(goo)
+	
 	#$timer.set_wait_time(1)
 
 
@@ -52,6 +54,9 @@ func _on_Area_body_entered(body):
 func _on_Area2_body_entered(body):
 	if body != self:
 		player = body
+		look_at(body.translation, Vector3.UP)
+		rotation.x = 0
+		rotation.z = 0
 
 
 func _on_Area2_body_exited(body):
