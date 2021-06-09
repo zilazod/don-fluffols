@@ -7,7 +7,9 @@
 [sub_resource type="SphereShape" id=2]
 radius = 0.193976
 
-[node name="goo" type="Area"]
+[node name="goo" type="Area" groups=[
+"Hit_Player",
+]]
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
@@ -15,10 +17,7 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 0.031, 0, 0, 0, 0.031, 0, 0, 0, 0.027, 0.169811, 0, -0.000918329 )
-mesh = SubResource( 1 )
-material/0 = null
-
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_goo_body_entered"]

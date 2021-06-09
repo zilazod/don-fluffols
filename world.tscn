@@ -33,7 +33,6 @@ transform = Transform( 0.371462, 0.362684, -0.854679, 0.644004, 0.562443, 0.5185
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1694, 2.89459, 0 )
-max_health = null
 
 [node name="slime" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90152, 0.541205, -0.000528097 )

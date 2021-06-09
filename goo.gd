@@ -26,3 +26,10 @@ func _physics_process(delta):
 	transform.origin += velocity * delta
 	#move = move.normalized() * speed
 	#translation += move
+
+
+
+
+func _on_goo_body_entered(body):
+	if body.name == "player":
+		queue_free()
