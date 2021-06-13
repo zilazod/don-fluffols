@@ -2,9 +2,8 @@
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.505378
-height = 0.465562
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.469332, 0.49149, 0.731316 )
 
 [sub_resource type="CapsuleMesh" id=2]
 
@@ -32,7 +31,10 @@ material/0 = null
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0 )
+transform = Transform( -2.62268e-08, 0.6, -2.62268e-08, 0, -2.62268e-08, -0.6, -0.6, -2.62268e-08, 1.14641e-15, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="sword" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.89706, 0, 0 )
 
 [connection signal="area_shape_entered" from="Area" to="." method="_on_Area_area_shape_entered"]

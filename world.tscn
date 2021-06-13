@@ -1,17 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://blocks.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://mblock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://PathFollow1.gd" type="Script" id=5]
 [ext_resource path="res://skeleton.tscn" type="PackedScene" id=6]
-
-[sub_resource type="Curve3D" id=1]
-_data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.78976, 1.81794, 0.204833, 0, 0, 0, 0, 0, 0, 12.453, 1.96098, 0.510336, 0, 0, 0, 0, 0, 0, -2.89085, 1.82099, 0.33601 ),
-"tilts": PoolRealArray( 0, 0, 0 )
-}
 
 [node name="world" type="Spatial"]
 
@@ -25,7 +17,7 @@ data = {
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 1, 0 )
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -42,17 +34,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.951, 5.5572, -0.000528097 )
 
 [node name="slime3" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7633, -0.392193, 0 )
-
-[node name="Path" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.2121, 4.66873, 0 )
-curve = SubResource( 1 )
-
-[node name="PathFollow1" type="PathFollow" parent="Path"]
-transform = Transform( 1, 0.000156697, -0.000472586, -0.0001567, 1, -5.99704e-06, 0.000472585, 6.07109e-06, 1, -2.66749, 1.81909, 0.207284 )
-offset = 0.130172
-script = ExtResource( 5 )
-
-[node name="mblock" parent="Path/PathFollow1" instance=ExtResource( 4 )]
 
 [node name="skeleton" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9522, 12.7931, 0 )
