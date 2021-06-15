@@ -18,6 +18,10 @@ config/name="don-fluffols"
 run/main_scene="res://world.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [input]
 
 ui_left={

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://blocks.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://skeleton.tscn" type="PackedScene" id=6]
 
 [node name="world" type="Spatial"]
@@ -37,3 +38,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7633, -0.392193, 0 )
 
 [node name="skeleton" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9522, 12.7931, 0 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.581953, 0.813223, 0, -0.813223, 0.581953, -10.8707, 4.06326, 4.5016 )
