@@ -40,4 +40,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7633, -0.392193, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.9522, 12.7931, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.581953, 0.813223, 0, -0.813223, 0.581953, -10.8707, 4.06326, 4.5016 )
+transform = Transform( 1, 0, 0, 0, 0.998487, 0.054985, 0, -0.054985, 0.998487, -10.8707, 4.06326, 7.08446 )
