@@ -38,7 +38,7 @@ shape = SubResource( 4 )
 autostart = true
 
 [node name="SlimeLauncher" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.745336, -0.666689, 0, 0.666689, 0.745336, -0.0115986, 0.784247, 0 )
+transform = Transform( 1, 0, 0, 0, 0.968959, -0.247219, 0, 0.247219, 0.968959, -0.0115986, 0.784247, 0 )
 
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]
 [connection signal="body_entered" from="Area2" to="." method="_on_Area2_body_entered"]

@@ -1,18 +1,10 @@
-[gd_scene load_steps=6 format=2]
-
-[ext_resource path="res://block_2.gd" type="Script" id=1]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.502614, 0.49652, 0.492938 )
-
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 1, 1, 1 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.483739, 0.49415, 0.504473 )
 
 [node name="tiles" type="Node"]
 
@@ -28,14 +20,13 @@ material/0 = null
 shape = SubResource( 2 )
 
 [node name="block_2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79375, 0, 0 )
-script = ExtResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26595, 0, 0 )
 
-[node name="block_2" type="MeshInstance" parent="block_2"]
-mesh = SubResource( 3 )
+[node name="block_1" type="MeshInstance" parent="block_2"]
+mesh = SubResource( 1 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="block_2/block_2"]
+[node name="StaticBody" type="StaticBody" parent="block_2/block_1"]
 
-[node name="CollisionShape" type="CollisionShape" parent="block_2/block_2/StaticBody"]
-shape = SubResource( 4 )
+[node name="CollisionShape" type="CollisionShape" parent="block_2/block_1/StaticBody"]
+shape = SubResource( 2 )

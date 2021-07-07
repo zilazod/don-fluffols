@@ -33,3 +33,6 @@ func _physics_process(delta):
 func _on_goo_body_entered(body):
 	if body.name == "player":
 		queue_free()
+
+
+

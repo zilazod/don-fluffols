@@ -24,15 +24,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
 		$sword.translation.x = 2
-		if Input.is_action_pressed("attack"):
-			move_dir -= 3
-			
+		
+		
 	if Input.is_action_pressed("move_left"):
 		move_dir -= 1
 		$sword.translation.x = -2
-		if Input.is_action_pressed("attack"):
-			move_dir += 3
-			
+		
+		
 	
 	move_and_slide(Vector3(move_dir * move_speed, y_velo, 0), Vector3(0,1,0))
 	
@@ -55,13 +53,11 @@ func _physics_process(delta):
 			owner.add_child(stab)
 			stab.transform = $sword.get_global_transform()
 			Global.created = true
+			
 	
 	
 	
 	
-
-
-
 
 func damage(amount):
 	if invulnerability_timer.is_stopped():
@@ -84,6 +80,15 @@ func _on_Area_area_shape_entered(area_id, area, area_shape, local_shape):
 	if area.is_in_group("Hit_Player"):
 		print("end me")
 		damage(10)
+
+
+
+
+
+
+
+
+
 
 
 

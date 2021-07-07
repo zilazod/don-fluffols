@@ -16,7 +16,11 @@ func dead():
 
 
 func _physics_process(delta):
-	
+	if player:
+		look_at(player.translation, Vector3.UP)
+		rotation.x = 0
+		rotation.z = 0
+		
 	if is_dead == false:
 		if is_on_wall():
 			direction = direction * -1
@@ -40,12 +44,6 @@ func fire():
 
 
 
-
-
-
-
-
-
 func _on_Area_body_entered(body):
 	if body.name == "stab":
 		dead()
@@ -53,11 +51,9 @@ func _on_Area_body_entered(body):
 
 func _on_Area2_body_entered(body):
 	if body != self:
-		player = body
-		look_at(body.translation, Vector3.UP)
-		rotation.x = 0
-		rotation.z = 0
-
+		if body.is_in_group("Player"):
+			player = body
+		
 
 func _on_Area2_body_exited(body):
 	player = null
@@ -66,3 +62,4 @@ func _on_Area2_body_exited(body):
 func _on_Timer_timeout():
 	if player != null:
 		fire()
+
