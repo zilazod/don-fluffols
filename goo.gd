@@ -3,7 +3,7 @@ extends Area
 #var move = Vector3.ZERO
 var look_vec = Vector3.ZERO
 onready var player = get_tree().get_root().get_node("world/player")
-var speed = 5
+var speed = 8
 var g = Vector3.DOWN * 3
 var velocity = Vector3.ZERO
 

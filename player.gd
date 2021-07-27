@@ -15,7 +15,8 @@ export (float) var max_health = 100
 
 onready var health = max_health setget _set_health
 
-
+func _ready():
+	$AnimationPlayer.play("idle")
 
 onready var invulnerability_timer = $invulnerabilityTimer
 
@@ -29,10 +30,25 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_left"):
 		move_dir -= 1
 		$sword.translation.x = -2
-		
-		
 	
-	move_and_slide(Vector3(move_dir * move_speed, y_velo, 0), Vector3(0,1,0))
+	
+	if move_dir != 0:
+		$AnimationPlayer.play("run")
+		print(move_dir)
+		if move_dir > 0:
+			print("not flipped")
+			$Sprite3D.flip_h = false
+		elif move_dir < 0:
+			print("flipped")
+			$Sprite3D.flip_h = true
+	else:
+		$AnimationPlayer.play("idle")
+	
+
+			
+		
+	var velocity = Vector3(move_dir * move_speed, y_velo,0)
+	move_and_slide(velocity, Vector3(0,1,0))
 	
 	var just_jumped = false
 	var grounded = is_on_floor()
@@ -47,6 +63,14 @@ func _physics_process(delta):
 		if Input.is_action_pressed("jump"):
 			y_velo = jump_force
 			just_jumped = true
+	
+	elif not grounded:
+		if velocity.y < 0:
+			$AnimationPlayer.play("fall")
+		else:
+			$AnimationPlayer.play("jump")	
+			
+				
 	if Input.is_action_pressed("attack"):
 		if Global.created == false:
 			var stab = stab_scene.instance()
