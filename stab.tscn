@@ -9,7 +9,7 @@ extents = Vector3( 0.868475, 0.100443, 0.0886114 )
 size = Vector3( 1.7, 0.2, 0.2 )
 
 [node name="stab" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0279999, 0, 0 )
+transform = Transform( 0.00551527, -0.999985, 0, 0.999985, 0.00551527, 0, 0, 0, 1, 0.0279999, 0, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
