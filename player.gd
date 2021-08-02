@@ -68,7 +68,7 @@ func _physics_process(delta):
 		if velocity.y < 0:
 			$AnimationPlayer.play("fall")
 		else:
-			$AnimationPlayer.play("jump")	
+			$AnimationPlayer.play("jump")
 			
 				
 	if Input.is_action_pressed("attack"):
