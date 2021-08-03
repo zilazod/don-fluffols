@@ -12,6 +12,7 @@
 [sub_resource type="Animation" id=4]
 resource_name = "attack"
 length = 1.15
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
@@ -27,7 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "fall"
-length = 0.3
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
@@ -35,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 15, 16, 17 ]
+"values": [ 16 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -60,7 +61,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=7]
 resource_name = "jump"
-length = 0.4
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite3D:frame")
 tracks/0/interp = 1
@@ -68,10 +69,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 11, 12, 13, 14 ]
+"values": [ 14 ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -117,12 +118,12 @@ shape = SubResource( 3 )
 transform = Transform( -0.0220591, -0.999757, 0, 0.999757, -0.0220591, 0, 0, 0, 1, 0.832795, 0, 0 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.218982, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0539426, 0.136362, 0 )
 pixel_size = 0.06
 texture = ExtResource( 2 )
 hframes = 7
 vframes = 10
-frame = 14
+frame = 29
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack = SubResource( 4 )

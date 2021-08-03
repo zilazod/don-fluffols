@@ -18,9 +18,11 @@ onready var health = max_health setget _set_health
 func _ready():
 	$AnimationPlayer.play("idle")
 
+
 onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
+	
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
@@ -81,7 +83,7 @@ func _physics_process(delta):
 	
 	
 	
-	
+
 
 func damage(amount):
 	if invulnerability_timer.is_stopped():

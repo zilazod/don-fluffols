@@ -30,7 +30,7 @@ transform = Transform( 0.371462, 0.362684, -0.854679, 0.644004, 0.562443, 0.5185
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1694, 2.89459, 0 )
 
 [node name="slime" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90152, 0.541205, -0.000528097 )
+transform = Transform( -0.0262468, 0, 0.999655, 0, 1, 0, -0.999655, 0, -0.0262468, 1.90152, 0.323997, -0.000528097 )
 
 [node name="slime2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.951, 5.5572, -0.000528097 )
