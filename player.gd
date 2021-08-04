@@ -9,6 +9,7 @@ const jump_force = 7
 const gravity = 9.8
 const max_fall_speed = 30
 var y_velo = 0
+var idle = true
 
 
 export (float) var max_health = 100
@@ -22,6 +23,8 @@ func _ready():
 onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
+	
+	
 	
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
@@ -45,6 +48,7 @@ func _physics_process(delta):
 			$Sprite3D.flip_h = true
 	else:
 		$AnimationPlayer.play("idle")
+		
 	
 
 			
@@ -73,12 +77,14 @@ func _physics_process(delta):
 			$AnimationPlayer.play("jump")
 			
 				
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_just_pressed("attack"):
 		if Global.created == false:
+			$AnimationPlayer.play("attack")
 			var stab = stab_scene.instance()
 			owner.add_child(stab)
 			stab.transform = $sword.get_global_transform()
 			Global.created = true
+			
 			
 	
 	

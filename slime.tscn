@@ -6,7 +6,7 @@
 [sub_resource type="SphereMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.737867, 0.588344, 0.550757 )
+extents = Vector3( 0.737867, 0.588344, 0.67728 )
 
 [sub_resource type="SphereShape" id=3]
 radius = 0.606978
