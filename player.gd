@@ -10,6 +10,8 @@ const gravity = 9.8
 const max_fall_speed = 30
 var y_velo = 0
 var idle = true
+var attack = false
+var wait = 0
 
 
 export (float) var max_health = 100
@@ -39,14 +41,11 @@ func _physics_process(delta):
 	
 	if move_dir != 0:
 		$AnimationPlayer.play("run")
-		print(move_dir)
 		if move_dir > 0:
-			print("not flipped")
 			$Sprite3D.flip_h = false
 		elif move_dir < 0:
-			print("flipped")
 			$Sprite3D.flip_h = true
-	else:
+	if move_dir == 0 and attack == false:
 		$AnimationPlayer.play("idle")
 		
 	
@@ -76,16 +75,23 @@ func _physics_process(delta):
 		else:
 			$AnimationPlayer.play("jump")
 			
-				
-	if Input.is_action_just_pressed("attack"):
-		if Global.created == false:
-			$AnimationPlayer.play("attack")
-			var stab = stab_scene.instance()
-			owner.add_child(stab)
-			stab.transform = $sword.get_global_transform()
-			Global.created = true
+	if grounded:
+		if Input.is_action_pressed("attack"):
+			if Global.created == false:
+				wait += 1
+				$AnimationPlayer.play("attack")
+				var stab = stab_scene.instance()
+				owner.add_child(stab)
+				stab.transform = $sword.get_global_transform()
+				Global.created = true
 			
+	if wait >= 1:
+		attack = true
+		wait += 0.1
 			
+	if wait > 8:
+		attack = false
+		wait = 0
 	
 	
 	
@@ -97,7 +103,7 @@ func damage(amount):
 	_set_health(health - amount)
 
 func kill():
-	queue_free()
+	get_tree().change_scene("res://world.tscn")
 
 func _set_health(value):
 	var prv_health = health
