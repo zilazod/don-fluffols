@@ -1,4 +1,4 @@
-extends KinematicBody
+extends Spatial
 
 onready var time_sword = $time_sword
 
@@ -16,5 +16,5 @@ func _physics_process(delta):
 
 
 func _on_Area_body_entered(body):
-	if body.name != "player":
-		$attack.disabled = false
+	if body.is_in_group("enemy"):
+		body.queue_free()

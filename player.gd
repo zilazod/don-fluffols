@@ -12,41 +12,42 @@ var y_velo = 0
 var idle = true
 var attack = false
 var wait = 0
-
+onready var animator = $AnimationTree.get("parameters/playback")
 
 export (float) var max_health = 100
 
 onready var health = max_health setget _set_health
 
 func _ready():
-	$AnimationPlayer.play("idle")
+	animator.travel("idle")
 
 
 onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
 	
-	
+	if animator.get_current_node() == "attack":
+		return
 	
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		move_dir += 1
-		$sword.translation.x = 2
+		$sword.translation.x = 1
 		
 		
 	if Input.is_action_pressed("move_left"):
 		move_dir -= 1
-		$sword.translation.x = -2
+		$sword.translation.x = -1
 	
 	
 	if move_dir != 0:
-		$AnimationPlayer.play("run")
+		animator.travel("run")
 		if move_dir > 0:
 			$Sprite3D.flip_h = false
 		elif move_dir < 0:
 			$Sprite3D.flip_h = true
 	if move_dir == 0 and attack == false:
-		$AnimationPlayer.play("idle")
+		animator.travel("idle")
 		
 	
 
@@ -71,27 +72,27 @@ func _physics_process(delta):
 	
 	elif not grounded:
 		if velocity.y < 0:
-			$AnimationPlayer.play("fall")
+			animator.travel("fall")
 		else:
-			$AnimationPlayer.play("jump")
+			animator.travel("jump")
 			
 	if grounded:
 		if Input.is_action_pressed("attack"):
 			if Global.created == false:
-				wait += 1
-				$AnimationPlayer.play("attack")
+				#wait += 1
+				animator.travel("attack")
 				var stab = stab_scene.instance()
-				owner.add_child(stab)
-				stab.transform = $sword.get_global_transform()
+				add_child(stab)
+				stab.transform = $sword.transform
 				Global.created = true
 			
-	if wait >= 1:
-		attack = true
-		wait += 0.1
-			
-	if wait > 8:
-		attack = false
-		wait = 0
+#	if wait >= 1:
+#		attack = true
+#		wait += 0.1
+#
+#	if wait > 8:
+#		attack = false
+#		wait = 0
 	
 	
 	
