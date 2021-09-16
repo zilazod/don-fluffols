@@ -33,6 +33,16 @@ func _physics_process(delta):
 func _on_goo_body_entered(body):
 	if body.name == "player":
 		queue_free()
+	if body.name == "cube":
+		queue_free()
+		
 
 
+
+
+
+func _on_goo_area_shape_entered(area_id, area, area_shape, local_shape):
+	if area.name == "death":
+		queue_free()
+		
 
