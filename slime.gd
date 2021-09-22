@@ -28,7 +28,7 @@ func _physics_process(delta):
 		velocity.x = 2 * direction
 		
 		velocity = move_and_slide(velocity,Vector3.UP)
-		pass
+		
 
 
 func fire():

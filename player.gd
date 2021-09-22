@@ -4,8 +4,8 @@ onready var stab_scene = preload("res://stab.tscn")
 signal health_updated(health)
 signal killed()
 
-const move_speed = 7
-const jump_force = 7
+const move_speed = 5
+const jump_force = 5
 const gravity = 9.8
 const max_fall_speed = 30
 var y_velo = 0
@@ -79,9 +79,9 @@ func _physics_process(delta):
 	if grounded:
 		if Input.is_action_pressed("attack"):
 			if Global.created == false:
-				#wait += 1
 				animator.travel("attack")
 				var stab = stab_scene.instance()
+				
 				add_child(stab)
 				stab.transform = $sword.transform
 				Global.created = true
