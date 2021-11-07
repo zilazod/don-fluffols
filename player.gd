@@ -5,8 +5,8 @@ signal health_updated(health)
 signal killed()
 
 const move_speed = 5
-const jump_force = 5
-const gravity = 9.8
+const jump_force = 7
+const gravity = 13
 const max_fall_speed = 30
 var y_velo = 0
 var idle = true
@@ -86,14 +86,7 @@ func _physics_process(delta):
 				stab.transform = $sword.transform
 				Global.created = true
 			
-#	if wait >= 1:
-#		attack = true
-#		wait += 0.1
-#
-#	if wait > 8:
-#		attack = false
-#		wait = 0
-	
+
 	
 	
 
