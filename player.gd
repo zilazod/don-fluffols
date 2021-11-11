@@ -21,7 +21,7 @@ onready var health = max_health setget _set_health
 func _ready():
 	animator.travel("idle")
 
-
+# moveing stuff
 onready var invulnerability_timer = $invulnerabilityTimer
 
 func _physics_process(delta):
